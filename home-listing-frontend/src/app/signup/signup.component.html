@@ -1,0 +1,27 @@
+<mat-card>
+    <mat-card-content>
+        <form #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm.value)">
+            <h2>Sign Up</h2>
+            <mat-form-field>
+                <input matInput ngModel placeholder="Username" name="username" required>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput ngModel placeholder="Fitstname" name="firstname"required>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput ngModel placeholder="Lastname" name="lastname" required>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput ngModel type="password" placeholder="Password" name="password" required>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput ngModel placeholder="Email" type="email" name="email" required>
+            </mat-form-field>
+            <mat-radio-group ngModel aria-label="Select an option" name="type">
+                <mat-radio-button value="admin">Admin</mat-radio-button>
+                <mat-radio-button value="customer">Customer</mat-radio-button>
+              </mat-radio-group>
+            <button mat-raised-button color="primary">Signup</button>
+        </form>
+    </mat-card-content>
+</mat-card>

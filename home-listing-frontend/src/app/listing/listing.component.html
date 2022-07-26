@@ -1,0 +1,53 @@
+<h1 *ngIf="username" ngFor="username" class="ms-5">Welcome {{username}},</h1>
+<h1 class="text-center">All Listing</h1>
+<div class="table-container">
+    <table mat-table [dataSource]="listings" class="mat-elevation-z8 w-75">
+
+        <!-- Id Column -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td class="pe-5" mat-cell *matCellDef="let listing"> {{listing.listing_id}} </td>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef> Title </th>
+            <td class="pe-3" mat-cell *matCellDef="let listing"> {{listing.listing_title}} </td>
+        </ng-container>
+    
+        <!-- Description Column -->
+        <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef> Description </th>
+            <td mat-cell *matCellDef="let listing" class="pe-3"> {{listing.description}} </td>
+        </ng-container>
+    
+        <!-- Address Column -->
+        <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef> Address </th>
+            <td class="pe-3" mat-cell *matCellDef="let listing"> {{listing.street}} {{listing.city}} {{listing.postal_code}} </td>
+        </ng-container>
+    
+        <!-- Price Column -->
+        <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef> Price </th>
+            <td class="pe-3" mat-cell *matCellDef="let listing"> &dollar;{{listing.price}} </td>
+        </ng-container>
+    
+        <!-- Email Column -->
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <td class="pe-3" mat-cell *matCellDef="let listing"> {{listing.email}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="actions" *ngIf="isLoggedin">
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <td class="d-block" mat-cell *matCellDef="let listing"> 
+                <mat-icon class="text-primary mx-1" (click)="addBooking(listing)">add_circle</mat-icon>
+                <mat-icon class="text-success mx-1">edit</mat-icon>
+                <mat-icon class="text-danger mx-1">delete</mat-icon> </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    
+</div>

@@ -1,0 +1,7 @@
+<mat-toolbar class="bg-primary">
+    <a routerLink="/" class="">Home</a>
+    <a routerLink="/history" *ngIf="isLoggedin">My Bookings</a>
+    <div  class="me-auto p-2"></div>
+    <a routerLink="/login" *ngIf="!isLoggedin">Login</a>
+    <a routerLink="/login" *ngIf="isLoggedin" (click)="logout()">Logout</a>
+</mat-toolbar>

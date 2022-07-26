@@ -1,0 +1,12 @@
+.table-container {
+    text-align: -webkit-center;
+}
+
+h1 {
+    font-size: 3em;
+    margin: 50px auto;
+}
+
+mat-icon {
+    cursor: pointer;
+}
